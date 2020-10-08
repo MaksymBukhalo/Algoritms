@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BubbleSort : BaseSortClass
 {
-	public InstantiateAlgoritmsVisulisation instantiateAlgoritms;
+	public InstantiateAlgoritmsVisulisation InstantiateAlgoritms;
 
 
     public void StartSortBubles()
 	{
-        StartCoroutine(BubbleSortMetods(instantiateAlgoritms.variables));
+        StartCoroutine(BubbleSortMetods(InstantiateAlgoritms.Variables));
 	}
 
     private IEnumerator BubbleSortMetods(List<RectTransform> listForSorted)

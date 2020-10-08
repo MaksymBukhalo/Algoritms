@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MergeSort : BaseSortClass
 {
-	public InstantiateAlgoritmsVisulisation instantiateAlgoritms;
+	public InstantiateAlgoritmsVisulisation InstantiateAlgoritms;
 
 
     public void StartMergeSort()
@@ -16,12 +16,12 @@ public class MergeSort : BaseSortClass
 
 
 
-    private IEnumerator MergeSortMetod(RectTransform[] listForSorted)
+    private IEnumerator MergeSortMetod(List<RectTransform> listForSorted)
     {
-        return MergeSortMetod(listForSorted, 0, listForSorted.Length - 1);
+        return MergeSortMetod(listForSorted, 0, listForSorted.Count - 1);
     }
 
-    private IEnumerator MergeSortMetod(RectTransform[] listForSorted, int lowIndex, int highIndex)
+    private IEnumerator MergeSortMetod(List<RectTransform> listForSorted, int lowIndex, int highIndex)
     {
         if (lowIndex < highIndex)
         {
@@ -33,23 +33,23 @@ public class MergeSort : BaseSortClass
         }
     }
 
-    static void Merge(RectTransform [] listForSorted, int lowIndex, int middleIndex, int highIndex)
+    static void Merge(List<RectTransform> listForSorted, int lowIndex, int middleIndex, int highIndex)
     {
         var left = lowIndex;
         var right = middleIndex + 1;
-        var gameObjectsTempArray = new List<RectTransform>(highIndex - lowIndex + 1);
+        var listForSorteTempArray = new List<RectTransform>(highIndex - lowIndex + 1);
         var index = 0;
 
         while ((left <= middleIndex) && (right <= highIndex))
         {
             if (listForSorted[left].rect.height < listForSorted[right].rect.height)
             {
-                gameObjectsTempArray[index] = listForSorted[left];
+                listForSorteTempArray.Insert(index, listForSorted[left]);
                 left++;
             }
             else
             {
-                gameObjectsTempArray[index] = listForSorted[right];
+                listForSorteTempArray.Insert(index, listForSorted[right]);
                 right++;
             }
 
@@ -58,19 +58,19 @@ public class MergeSort : BaseSortClass
 
         for (var i = left; i <= middleIndex; i++)
         {
-            gameObjectsTempArray[index] = listForSorted[i];
+            listForSorteTempArray.Insert(index, listForSorted[i]);
             index++;
         }
 
         for (var i = right; i <= highIndex; i++)
         {
-            gameObjectsTempArray[index] = listForSorted[i];
+            listForSorteTempArray.Insert(index, listForSorted[i]);
             index++;
         }
 
-        for (var i = 0; i < gameObjectsTempArray.Count; i++)
+        for (var i = 0; i < listForSorteTempArray.Count; i++)
         {
-            listForSorted[lowIndex + i] = gameObjectsTempArray[i];
+            listForSorted.Insert(lowIndex + i,listForSorteTempArray[i]);
         }
     }
 }

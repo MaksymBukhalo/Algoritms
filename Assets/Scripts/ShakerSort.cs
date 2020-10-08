@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ShakerSort : BaseSortClass
 {
-    public InstantiateAlgoritmsVisulisation instantiateAlgoritms;
+    public InstantiateAlgoritmsVisulisation InstantiateAlgoritms;
 
     public void StartSortShaker()
     {
-		StartCoroutine(ShakerSortMetods(instantiateAlgoritms.variables));
+		StartCoroutine(ShakerSortMetods(InstantiateAlgoritms.Variables));
 	}
 
 

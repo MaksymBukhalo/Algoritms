@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class InsertionSort : BaseSortClass
 {
-    public InstantiateAlgoritmsVisulisation instantiateAlgoritms;
+    public InstantiateAlgoritmsVisulisation InstantiateAlgoritms;
 
     public void StartInsertionSort()
     {
-        StartCoroutine(InsertionSortMetods(instantiateAlgoritms.variables));
+        StartCoroutine(InsertionSortMetods(InstantiateAlgoritms.Variables));
     }
 
     private IEnumerator InsertionSortMetods(List<RectTransform> listForSorted)

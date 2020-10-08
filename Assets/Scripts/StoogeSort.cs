@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class StoogeSort : BaseSortClass
 {
-    public InstantiateAlgoritmsVisulisation instantiateAlgoritms;
+    public InstantiateAlgoritmsVisulisation InstantiateAlgoritms;
 
     public void StartStoogeSort()
     {
-        StartCoroutine(StoogeSortMetods(instantiateAlgoritms.variables));
+        StartCoroutine(StoogeSortMetods(InstantiateAlgoritms.Variables));
     }
 
     private IEnumerator StoogeSortMetods(List<RectTransform> listForSorted)
