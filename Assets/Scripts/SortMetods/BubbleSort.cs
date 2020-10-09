@@ -9,7 +9,7 @@ public class BubbleSort : BaseSortClass
 
     public void StartSortBubles()
 	{
-        StartCoroutine(BubbleSortMetods(InstantiateAlgoritms.Variables));
+        StartCoroutine(BubbleSortMetods(InstantiateAlgoritms.Variables1));
 	}
 
     private IEnumerator BubbleSortMetods(List<RectTransform> listForSorted)

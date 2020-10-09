@@ -8,7 +8,7 @@ public class InsertionSort : BaseSortClass
 
     public void StartInsertionSort()
     {
-        StartCoroutine(InsertionSortMetods(InstantiateAlgoritms.Variables));
+        StartCoroutine(InsertionSortMetods(InstantiateAlgoritms.Variables1));
     }
 
     private IEnumerator InsertionSortMetods(List<RectTransform> listForSorted)

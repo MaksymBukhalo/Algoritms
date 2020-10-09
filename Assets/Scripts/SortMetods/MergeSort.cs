@@ -9,7 +9,7 @@ public class MergeSort : BaseSortClass
 
 	public void StartMergeSort()
 	{
-		MergeSortMetod(InstantiateAlgoritms.Variables);
+		MergeSortMetod(InstantiateAlgoritms.Variables1);
 	}
 
 
@@ -70,16 +70,17 @@ public class MergeSort : BaseSortClass
 
 	private IEnumerator Wui(List<RectTransform> listForSorted)
 	{
-		listForSorted[0].transform.position = startPosition;
+		Vector3 position = startPosition;
+		listForSorted[0].transform.position = position;
 		int j = 1;
 		while (j < listForSorted.Count && startPosition != null)
 		{
-			listForSorted[j].transform.position = new Vector3(startPosition.x + listForSorted[j].rect.width, startPosition.y, startPosition.z);
-			startPosition = listForSorted[j].transform.position;
+			listForSorted[j].transform.position = new Vector3(position.x + listForSorted[j].rect.width, position.y, position.z);
+			position = listForSorted[j].transform.position;
 			j++;
 			yield return new WaitForSeconds(0.001f);
 		}
-		startPosition = listForSorted[0].transform.position;
+		position = startPosition;
 	}
 }
 

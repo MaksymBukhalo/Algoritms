@@ -8,7 +8,7 @@ public class StoogeSort : BaseSortClass
 
     public void StartStoogeSort()
     {
-        StartCoroutine(StoogeSortMetods(InstantiateAlgoritms.Variables));
+        StartCoroutine(StoogeSortMetods(InstantiateAlgoritms.Variables1));
     }
 
     private IEnumerator StoogeSortMetods(List<RectTransform> listForSorted)
@@ -21,7 +21,6 @@ public class StoogeSort : BaseSortClass
         if (listGorSorted[startIndex].rect.height > listGorSorted[endIndex].rect.height)
         {
             Swap(ref listGorSorted, startIndex, endIndex);
-            yield return new WaitForSeconds(0.001f);
         }
 
         if (endIndex - startIndex > 1)
@@ -31,5 +30,6 @@ public class StoogeSort : BaseSortClass
             StartCoroutine(StoogeSortMetods(listGorSorted, startIndex + len, endIndex));
             StartCoroutine(StoogeSortMetods(listGorSorted, startIndex, endIndex - len));
         }
+        yield break;
     }
 }
