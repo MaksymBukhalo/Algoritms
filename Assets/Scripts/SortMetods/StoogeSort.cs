@@ -4,32 +4,43 @@ using UnityEngine;
 
 public class StoogeSort : BaseSortClass
 {
-    public InstantiateAlgoritmsVisulisation InstantiateAlgoritms;
+	public InstantiateAlgoritmsVisulisation InstantiateAlgoritms;
 
-    public void StartStoogeSort()
-    {
-        StartCoroutine(StoogeSortMetods(InstantiateAlgoritms.Variables1));
-    }
-
-    private IEnumerator StoogeSortMetods(List<RectTransform> listForSorted)
+	public void StartStoogeSort()
 	{
-        yield return StartCoroutine(StoogeSortMetods(listForSorted, 0, listForSorted.Count - 1));
-    }
+		StoogeSortMetod(InstantiateAlgoritms.Variables, 0, InstantiateAlgoritms.Variables.Count - 1);
+	}
 
-    private IEnumerator StoogeSortMetods(List<RectTransform> listGorSorted, int startIndex, int endIndex)
-    {
-        if (listGorSorted[startIndex].rect.height > listGorSorted[endIndex].rect.height)
-        {
-            Swap(ref listGorSorted, startIndex, endIndex);
-        }
+	private IEnumerator StoogeSortMetods(List<RectTransform> listGorSorted, int startIndex, int endIndex)
+	{
+		if (listGorSorted[startIndex].rect.height > listGorSorted[endIndex].rect.height)
+		{
+			Swap(ref listGorSorted, startIndex, endIndex);
+		}
 
-        if (endIndex - startIndex > 1)
-        {
-            var len = (endIndex - startIndex + 1) / 3;
-            StartCoroutine(StoogeSortMetods(listGorSorted, startIndex, endIndex - len));
-            StartCoroutine(StoogeSortMetods(listGorSorted, startIndex + len, endIndex));
-            StartCoroutine(StoogeSortMetods(listGorSorted, startIndex, endIndex - len));
-        }
-        yield break;
-    }
+		if (endIndex - startIndex > 1)
+		{
+			var len = (endIndex - startIndex +1) / 3;
+			StartCoroutine(StoogeSortMetods(listGorSorted, startIndex, endIndex - len));
+			StartCoroutine(StoogeSortMetods(listGorSorted, startIndex + len, endIndex));
+			StartCoroutine(StoogeSortMetods(listGorSorted, startIndex, endIndex - len));
+		}
+		yield return new WaitForSeconds(0.001f);
+	}
+
+	private void StoogeSortMetod(List<RectTransform> listGorSorted, int startIndex, int endIndex)
+	{
+		if (listGorSorted[startIndex].rect.height > listGorSorted[endIndex].rect.height)
+		{
+			Swap(ref listGorSorted, startIndex, endIndex);
+		}
+
+		if (endIndex - startIndex > 1)
+		{
+			var len = (endIndex - startIndex + 1) / 3;
+			StoogeSortMetod(listGorSorted, startIndex, endIndex - len);
+			StoogeSortMetod(listGorSorted, startIndex + len, endIndex);
+			StoogeSortMetod(listGorSorted, startIndex, endIndex - len);
+		}
+	}
 }

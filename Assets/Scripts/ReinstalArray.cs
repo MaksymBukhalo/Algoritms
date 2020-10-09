@@ -20,18 +20,18 @@ public class ReinstalArray : MonoBehaviour
 		ClearList();
 		GameObject newVeribles = Instantiate(PrefabExampleVariable,Content);
 		newVeribles.transform.position = _startPosition;
-		Visulisation.ExampleVariable1 = newVeribles;
-		//Visulisation.SetVariables();
+		Visulisation.ExampleVariable = newVeribles;
+		Visulisation.SetVariables();
 	}
 
 	private void ClearList()
 	{
-		//int i = 0;
-		//while(i< Visulisation.Variables1.Count)
-		//{
-		//	Destroy(Visulisation.Variables[i].gameObject);
-		//	i++;
-		//}
-		//Visulisation.Variables.Clear();
+		int i = 0;
+		while (i < Visulisation.Variables.Count)
+		{
+			Destroy(Visulisation.Variables[i].gameObject);
+			i++;
+		}
+		Visulisation.Variables.Clear();
 	}
 }

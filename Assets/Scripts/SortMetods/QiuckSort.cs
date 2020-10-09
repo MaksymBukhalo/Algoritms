@@ -9,7 +9,7 @@ public class QiuckSort : BaseSortClass
 
 	public void StartQuickSort()
 	{
-		List<RectTransform> listForSorted = InstantiateAlgoritms.Variables1;
+		List<RectTransform> listForSorted = InstantiateAlgoritms.Variables;
 		StartCoroutine(QuickSort(listForSorted, 0, listForSorted.Count - 1));
 	}
 

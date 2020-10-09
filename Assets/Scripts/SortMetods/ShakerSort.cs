@@ -8,7 +8,7 @@ public class ShakerSort : BaseSortClass
 
     public void StartSortShaker()
     {
-		StartCoroutine(ShakerSortMetods(InstantiateAlgoritms.Variables1));
+		StartCoroutine(ShakerSortMetods(InstantiateAlgoritms.Variables));
 	}
 
 

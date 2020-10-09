@@ -9,7 +9,7 @@ public class MergeSort : BaseSortClass
 
 	public void StartMergeSort()
 	{
-		MergeSortMetod(InstantiateAlgoritms.Variables1);
+		MergeSortMetod(InstantiateAlgoritms.Variables);
 	}
 
 

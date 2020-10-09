@@ -5,24 +5,18 @@ using UnityEngine;
 public class InstantiateAlgoritmsVisulisation : MonoBehaviour
 {
 	public int ArraySize = 100;
-	public GameObject ExampleVariable1;
-	public RectTransform PanelViewContent1;
-	public List<RectTransform> Variables1;
-	private RectTransform _exampleVeriableRectTransform1;
-	public GameObject ExampleVariable2;
-	public RectTransform PanelViewContent2;
-	public List<RectTransform> Variables2;
-	private RectTransform _exampleVeriableRectTransform2;
+	public GameObject ExampleVariable;
+	public RectTransform PanelViewContent;
+	public List<RectTransform> Variables;
+	private RectTransform _exampleVeriableRectTransform;
 
 	private void Start()
 	{
-		Variables1 = new List<RectTransform>(ArraySize);
-		Variables2 = new List<RectTransform>(ArraySize);
-		SetVariables(ExampleVariable1, PanelViewContent1, Variables1, _exampleVeriableRectTransform1);
-		SetVariables(ExampleVariable2, PanelViewContent2, Variables2, _exampleVeriableRectTransform2);
+		Variables = new List<RectTransform>(ArraySize);
+		SetVariables();
 	}
 
-	public void SetVariables(GameObject ExampleVariable, RectTransform PanelViewContent, List<RectTransform> Variables, RectTransform _exampleVeriableRectTransform)
+	public void SetVariables()
 	{
 		_exampleVeriableRectTransform = ExampleVariable.GetComponent<RectTransform>();
 		Transform startPosition = ExampleVariable.transform;
