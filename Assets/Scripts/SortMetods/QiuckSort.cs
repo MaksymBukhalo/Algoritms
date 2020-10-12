@@ -20,10 +20,21 @@ public class QiuckSort : BaseSortClass
 			yield break;
 		}
 
-		var pivotIndex = Partition(listForSorted, minIndex, maxIndex);
-		yield return new WaitForSeconds(0.1f);
-		StartCoroutine(QuickSort(listForSorted, minIndex, pivotIndex - 1));
-		StartCoroutine(QuickSort(listForSorted, pivotIndex + 1, maxIndex));
+		int pivot = minIndex - 1;
+		for (int i = minIndex; i < maxIndex; i++)
+		{
+			if (listForSorted[i].rect.height < listForSorted[maxIndex].rect.height)
+			{
+				pivot++;
+				Swap(ref listForSorted, pivot, i);
+				yield return new WaitForSeconds(0.001f);
+			}
+		}
+		pivot++;
+		Swap(ref listForSorted, pivot, maxIndex);
+		yield return new WaitForSeconds(0.001f);
+		StartCoroutine(QuickSort(listForSorted, minIndex, pivot - 1));
+		StartCoroutine(QuickSort(listForSorted, pivot + 1, maxIndex));
 
 		yield break;
 	}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InstantiateAlgoritmsVisulisation : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class InstantiateAlgoritmsVisulisation : MonoBehaviour
 	public GameObject ExampleVariable;
 	public RectTransform PanelViewContent;
 	public List<RectTransform> Variables;
+	public Text nameAlgoritms;
 	private RectTransform _exampleVeriableRectTransform;
 
 	private void Start()
